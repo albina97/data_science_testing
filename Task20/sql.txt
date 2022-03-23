@@ -1,0 +1,5 @@
+SELECT Name as n
+FROM students_scores
+where ((SELECT SUM(Mark) FROM students WHERE Name = n GROUP BY Name)/
+(SELECT count(Name) FROM students WHERE Name = n GROUP BY Name)) >= 3.5
+GROUP by Name;
